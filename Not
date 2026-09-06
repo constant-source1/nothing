@@ -8683,7 +8683,7 @@ RunService.Heartbeat:Connect(function()
                 else waitTime=0.1 end
             else waitTime=0.1 end
         end
-    else waitTime=0.5 end
+    else waitTime=0.1 end
     if tick()-Last_Shot < waitTime then return end
     local vals=tool:FindFirstChild("Values"); local ammo=vals and vals:FindFirstChild("SERVER_Ammo")
     if not (ammo and ammo.Value>0) then return end
@@ -8729,7 +8729,7 @@ RunService.Heartbeat:Connect(function()
     local myRoot=myChar and myChar:FindFirstChild("HumanoidRootPart")
     if not myRoot then return end
     local now=tick()
-    if now-LastVisualUpdate >= ((myRoot.Velocity.Magnitude>(CONFIG.VelocityThreshold or 0.5)) and CONFIG.Rate_Active or CONFIG.Rate_Idle) then
+    if now-LastVisualUpdate >= ((myRoot.Velocity.Magnitude>(CONFIG.VelocityThreshold or 0.1)) and CONFIG.Rate_Active or CONFIG.Rate_Idle) then
         LastVisualUpdate=now
         for _,player in pairs(Players:GetPlayers()) do
             if player~=LocalPlayer and player.Character then
